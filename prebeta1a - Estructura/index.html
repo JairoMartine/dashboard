@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.2/dist/echarts.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+
+<div id="topbar">
+  <h1>Dashboard CEO </h1>
+</div>
+  <form id="filtroFechasForm">
+    <div id="sidebar">
+      <div class="options">
+        <label for="startDate">Fecha de inicio:</label>
+        <input type="date" id="startDate" name="startDate" value="2023-12-01" required>
+      </div>
+      <div class="options">
+        <label for="endDate">Fecha de fin:</label>
+        <input type="date" id="endDate" name="endDate" value="2023-12-10" required>
+      </div>
+      <div class="options">
+        <label for="tipoGrafica">kpis</label>
+        <select id="tipoGrafica" onchange="cambiarTipoGrafica()">
+          <option value="ingresos">Ingresos vs Punto de Equilibrio</option>
+          <option value="clientes">Clientes por Mes</option>
+          <option value="servicios">Ventas por servicio</option>
+        </select>
+      </div>
+      <div class="options">
+        <label for="moneda">Moneda:</label>
+        <select id="currencySelector" onchange="cambiarTipoMoneda(); changeCurrency()">
+          <option value="peso">Peso</option>
+          <option value="dolar">Dólar</option>
+          <option value="euro">Euro</option>
+        </select>
+      </div>
+      <div class="options">
+        <button type="submit" onclick="updateChart()" >Aceptar</button>
+      </div>
+    </div>
+
+    <div id="main" style="display: flex; flex-wrap: wrap; margin-left: 250px; padding: 20px;">
+
+    <div id="ingreso-box" class="rectangle">
+      <img src="img/ingresos.png" alt="">
+      <h2>INGRESO</h2>
+      <p id="totalIngresos">0</p>
+      <p id="porcentajeIngresos"> 0% MDP</p>
+    </div>
+
+    <div id="negocios-box" class="rectangle">
+      <img src="img/negocio.png" alt="">
+      <h2>NEGOCIOS</h2>
+      <p id="totalNegocios">0</p>
+      <p id="porcentajeNegocios">0% TOTALES</p>
+    </div>
+
+    <div id="socios-box" class="rectangle">
+      <img src="img/socios.png" alt="">
+      <h2>SOCIOS</h2>
+      <p id="totalSocios">0</p>
+      <p id="porcentajeSocios">0% TOTALES</p>
+    </div>
+
+    <div id="clientes-box" class="rectangle">
+      <img src="img/clientes.png" alt="">
+      <h2>CLIENTES</h2>
+      <p id="totalClientes">0</p>
+      <p id="porcentajeClientes">0% TOTALES</p>
+    </div>
+    
+    <div id="velocimetro" class="square-rectangle"></div>
+
+    <div id="chartContainer" class="rectangle-below"></div>
+
+    <div id="ingresosPuntoEquilibrio" class="rectangle-below"></div>
+    <div id="clientesPorMes" class="rectangle-below" style="width: 585px; display: none;"></div>
+    <div id="ventasPorServicio" class="rectangle-below" style="width: 585px; display: none;"" ></div>
+
+
+    <div id="map" class="square-rectangle"></div>
+
+    <div id="puntos-equilibrio-box" class="rectangle">
+      <img src="img/equilibrio.png" alt="">
+      <h2>PUNTO DE EQUILIBRIO</h2>
+      <p id="totalPuntosEquilibrio">0</p>
+      <p id="porcentajePuntosEquilibrio">0% MDP</p>
+    </div>
+
+    <div id="utilidades-box" class="rectangle">
+      <img src="img/utilidad.png" alt="">
+      <h2>UTILIDADES</h2>
+      <p id="totalUtilidades">0</p>
+      <p id="porcentajeUtilidades">0% MDP</p>
+    </div>
+
+
+
+  </form>
+</div>
+
+
+<p>hola</p>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script src="dashboard.js"></script>
+<script src="cuadros.js"></script>
+<script src="kpis.js"></script>
+
+</body>
+</html>
