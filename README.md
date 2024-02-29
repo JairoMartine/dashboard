@@ -8,7 +8,7 @@ imagen de el modelo actual de la base de datos:
 ![Clase UML](https://github.com/samuelzazueta/protoripo2_dashborad/assets/82922454/e68c1b14-a8ec-4686-a2ab-7ab845a92fa5)
 
 estado actual de la paguina:
-![image](https://github.com/samuelzazueta/protoripo2_dashborad/assets/82922454/b468741c-84da-44c6-9d1a-227d0d029a75)
+![image](https://drive.google.com/file/d/1kUfvJMIYL2kOP8rtOjkCsZgdB3_CI2Dq/view?usp=sharing)
 
 
 
